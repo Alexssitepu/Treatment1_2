@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Form Layanan — Portal Layanan Mahasiswa</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
   <header class="letterhead">
@@ -27,7 +29,8 @@
       <section class="info-pane">
         <span class="ticket-badge">Ambil Nomor Tiket</span>
         <h2>Ajukan Layanan</h2>
-        <p>Isi formulir di samping untuk mengajukan layanan administrasi. Setiap pengajuan akan mendapat nomor tiket unik yang bisa dilihat pada halaman Data Pengajuan.</p>
+        <p>Isi formulir di samping untuk mengajukan layanan administrasi. Setiap pengajuan akan mendapat nomor tiket
+          unik yang bisa dilihat pada halaman Data Pengajuan.</p>
         <ol>
           <li>Lengkapi data diri dan jenis layanan.</li>
           <li>Klik "Ajukan Layanan" untuk mengirim.</li>
@@ -60,8 +63,18 @@
 
           <div class="field">
             <label for="jenisLayanan">Jenis Layanan <span class="required">*</span></label>
-            <input type="text" id="jenisLayanan" name="jenisLayanan" placeholder="Contoh: Legalisir Ijazah, Surat Aktif Kuliah" />
-            <p class="error-msg">Jenis layanan wajib diisi.</p>
+            <select id="jenisLayanan" name="jenisLayanan">
+              <option value="">-- Pilih Jenis Layanan --</option>
+              <option value="Legalisir Ijazah">Legalisir Ijazah</option>
+              <option value="Surat Keterangan Aktif Kuliah">Surat Keterangan Aktif Kuliah</option>
+              <option value="Surat Keterangan Lulus">Surat Keterangan Lulus</option>
+              <option value="Pengajuan Cuti Akademik">Pengajuan Cuti Akademik</option>
+              <option value="Perbaikan Nilai (KRS/KHS)">Perbaikan Nilai (KRS/KHS)</option>
+              <option value="Pengurusan Transkrip Nilai">Pengurusan Transkrip Nilai</option>
+              <option value="Konsultasi Akademik">Konsultasi Akademik</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+            <p class="error-msg">Jenis layanan wajib dipilih.</p>
           </div>
 
           <div class="field">
@@ -85,4 +98,5 @@
 
   <script src="js/app.js"></script>
 </body>
+
 </html>

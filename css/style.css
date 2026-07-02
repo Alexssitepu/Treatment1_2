@@ -202,6 +202,7 @@ main {
 }
 
 .field input,
+.field select,
 .field textarea {
   width: 100%;
   padding: 11px 12px;
@@ -215,6 +216,7 @@ main {
 }
 
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
   outline: none;
   border-color: var(--blue);
@@ -235,6 +237,7 @@ main {
 }
 
 .field.invalid input,
+.field.invalid select,
 .field.invalid textarea {
   border-color: var(--red);
 }
