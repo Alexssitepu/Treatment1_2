@@ -39,6 +39,16 @@ function formatDate(isoString) {
   });
 }
 
+/** Ubah setiap huruf depan kata menjadi kapital, contoh: "alex sander" -> "Alex Sander" */
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
 /* ---------------------------------------------------------
    Halaman Form (index.html)
 --------------------------------------------------------- */
@@ -75,6 +85,9 @@ function initFormPage() {
     if (!fields.nim.value.trim()) {
       setInvalid(fields.nim, true);
       valid = false;
+    } else if (!/^\d+$/.test(fields.nim.value.trim())) {
+      setInvalid(fields.nim, true);
+      valid = false;
     } else {
       setInvalid(fields.nim, false);
     }
@@ -85,6 +98,10 @@ function initFormPage() {
     } else {
       setInvalid(fields.jenisLayanan, false);
     }
+
+    fields.nim.addEventListener("input", function () {
+      fields.nim.value = fields.nim.value.replace(/[^0-9]/g, "");
+    });
 
     return valid;
   }
@@ -155,7 +172,7 @@ function initDataPage() {
 
     tr.innerHTML =
       '<td class="ticket-id">' + escapeHtml(entry.id) + "</td>" +
-      "<td>" + escapeHtml(entry.nama) + "</td>" +
+      "<td>" + escapeHtml(toTitleCase(entry.nama)) + "</td>" +
       "<td>" + escapeHtml(entry.nim) + "</td>" +
       '<td><span class="service-tag">' + escapeHtml(entry.jenisLayanan) + "</span></td>" +
       "<td>" + (entry.keterangan ? escapeHtml(entry.keterangan) : "&mdash;") + "</td>" +

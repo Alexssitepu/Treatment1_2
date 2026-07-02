@@ -57,8 +57,9 @@
 
           <div class="field">
             <label for="nim">NIM <span class="required">*</span></label>
-            <input type="text" id="nim" name="nim" placeholder="Contoh: 12345678" />
-            <p class="error-msg">NIM wajib diisi.</p>
+            <input type="text" id="nim" name="nim" inputmode="numeric" pattern="[0-9]*" maxlength="15"
+              placeholder="Contoh: 12345678" />
+            <p class="error-msg">NIM wajib diisi dan hanya boleh berupa angka.</p>
           </div>
 
           <div class="field">
