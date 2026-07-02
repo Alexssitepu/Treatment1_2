@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Layanan — Portal Layanan Mahasiswa</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="letterhead">
+    <div class="letterhead__mark">PL</div>
+    <div class="letterhead__text">
+      <p class="eyebrow">Sistem Antrean Digital</p>
+      <h1>Portal Layanan Mahasiswa</h1>
+    </div>
+  </header>
+
+  <nav class="tabnav">
+    <a href="index.html" class="active">Form Pengajuan</a>
+    <a href="data.html">Data Pengajuan</a>
+  </nav>
+
+  <main>
+    <div class="form-shell">
+
+      <section class="info-pane">
+        <span class="ticket-badge">Ambil Nomor Tiket</span>
+        <h2>Ajukan Layanan</h2>
+        <p>Isi formulir di samping untuk mengajukan layanan administrasi. Setiap pengajuan akan mendapat nomor tiket unik yang bisa dilihat pada halaman Data Pengajuan.</p>
+        <ol>
+          <li>Lengkapi data diri dan jenis layanan.</li>
+          <li>Klik "Ajukan Layanan" untuk mengirim.</li>
+          <li>Catat nomor tiket yang muncul.</li>
+          <li>Cek status pada halaman Data Pengajuan.</li>
+        </ol>
+      </section>
+
+      <section class="form-pane">
+        <h2>Formulir Pengajuan</h2>
+        <p class="subtitle">Seluruh data disimpan langsung di perangkat Anda.</p>
+
+        <div class="ticket-toast" id="ticketToast">
+          <span>Pengajuan berhasil! Nomor tiket Anda:</span>
+          <strong id="ticketToastId">TIKET-000</strong>
+        </div>
+
+        <form id="formLayanan" novalidate>
+          <div class="field">
+            <label for="nama">Nama <span class="required">*</span></label>
+            <input type="text" id="nama" name="nama" placeholder="Contoh: Alex Sander Sitepu" />
+            <p class="error-msg">Nama wajib diisi.</p>
+          </div>
+
+          <div class="field">
+            <label for="nim">NIM <span class="required">*</span></label>
+            <input type="text" id="nim" name="nim" placeholder="Contoh: 12345678" />
+            <p class="error-msg">NIM wajib diisi.</p>
+          </div>
+
+          <div class="field">
+            <label for="jenisLayanan">Jenis Layanan <span class="required">*</span></label>
+            <input type="text" id="jenisLayanan" name="jenisLayanan" placeholder="Contoh: Legalisir Ijazah, Surat Aktif Kuliah" />
+            <p class="error-msg">Jenis layanan wajib diisi.</p>
+          </div>
+
+          <div class="field">
+            <label for="keterangan">Keterangan</label>
+            <textarea id="keterangan" name="keterangan" placeholder="Catatan tambahan (opsional)"></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn-primary">Ajukan Layanan</button>
+            <a href="data.html" class="link-secondary">Lihat data pengajuan &rarr;</a>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    Portal Layanan Mahasiswa &middot; Tugas Perancangan Web
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
