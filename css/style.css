@@ -397,6 +397,42 @@ tbody tr:hover {
   white-space: nowrap;
 }
 
+.row-actions {
+  white-space: nowrap;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 11px;
+  font-size: 12.5px;
+  font-weight: bold;
+  font-family: var(--font);
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.btn-edit {
+  background: var(--blue-soft);
+  color: var(--navy-mid);
+}
+
+.btn-edit:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-delete {
+  background: #fbe4e4;
+  color: var(--red);
+}
+
+.btn-delete:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
 /* ---------- Empty state ---------- */
 .empty-state {
   text-align: center;
@@ -443,10 +479,12 @@ footer {
   .letterhead__text h1 {
     font-size: 15px;
   }
+
   .actions {
     flex-direction: column;
     align-items: stretch;
   }
+
   .btn-primary {
     width: 100%;
   }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form Layanan — Portal Layanan Mahasiswa</title>
+  <title>Form &amp; Riwayat Pengajuan — Portal Layanan Mahasiswa</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -18,24 +18,18 @@
     </div>
   </header>
 
-  <nav class="tabnav">
-    <a href="index.html" class="active">Form Pengajuan</a>
-    <a href="data.html">Data Pengajuan</a>
-  </nav>
-
   <main>
     <div class="form-shell">
 
       <section class="info-pane">
         <span class="ticket-badge">Ambil Nomor Tiket</span>
-        <h2>Ajukan Layanan</h2>
-        <p>Isi formulir di samping untuk mengajukan layanan administrasi. Setiap pengajuan akan mendapat nomor tiket
-          unik yang bisa dilihat pada halaman Data Pengajuan.</p>
+        <h2 id="formModeTitle">Ajukan Layanan</h2>
+        <p>Isi formulir untuk mengajukan layanan administrasi. Setiap pengajuan akan mendapat nomor tiket unik dan
+          langsung tampil pada tabel riwayat di bawah.</p>
         <ol>
           <li>Lengkapi data diri dan jenis layanan.</li>
           <li>Klik "Ajukan Layanan" untuk mengirim.</li>
-          <li>Catat nomor tiket yang muncul.</li>
-          <li>Cek status pada halaman Data Pengajuan.</li>
+          <li>Gunakan tombol Edit / Hapus pada tabel untuk mengubah data.</li>
         </ol>
       </section>
 
@@ -44,11 +38,13 @@
         <p class="subtitle">Seluruh data disimpan langsung di perangkat Anda.</p>
 
         <div class="ticket-toast" id="ticketToast">
-          <span>Pengajuan berhasil! Nomor tiket Anda:</span>
+          <span id="ticketToastMsg">Pengajuan berhasil! Nomor tiket Anda:</span>
           <strong id="ticketToastId">TIKET-000</strong>
         </div>
 
         <form id="formLayanan" novalidate>
+          <input type="hidden" id="editId" value="" />
+
           <div class="field">
             <label for="nama">Nama <span class="required">*</span></label>
             <input type="text" id="nama" name="nama" placeholder="Contoh: Alex Sander Sitepu" />
@@ -84,17 +80,52 @@
           </div>
 
           <div class="actions">
-            <button type="submit" class="btn-primary">Ajukan Layanan</button>
-            <a href="data.html" class="link-secondary">Lihat data pengajuan &rarr;</a>
+            <button type="submit" class="btn-primary" id="submitBtn">Ajukan Layanan</button>
+            <a href="#" class="link-secondary" id="cancelEditLink" style="display:none;">Batalkan edit</a>
           </div>
         </form>
       </section>
 
     </div>
+
+    <div class="data-header" style="margin-top:34px;">
+      <div>
+        <h2>Riwayat Pengajuan</h2>
+        <p class="subtitle">Data akan bertambah otomatis begitu Anda mengirim formulir di atas.</p>
+      </div>
+      <span class="count-pill" id="countPill">0 entri</span>
+    </div>
+
+    <div class="table-card" id="tableCard">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>No. Tiket</th>
+              <th>Nama</th>
+              <th>NIM</th>
+              <th>Jenis Layanan</th>
+              <th>Keterangan</th>
+              <th>Waktu Pengajuan</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="dataTableBody">
+            <!-- Baris data ditambahkan/diubah/dihapus lewat DOM manipulation di js/app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="icon">!</div>
+      <h3>Belum ada pengajuan</h3>
+      <p>Data akan muncul di sini setelah Anda mengisi formulir di atas.</p>
+    </div>
   </main>
 
   <footer>
-    Portal Layanan Mahasiswa &middot; Tugas Perancangan Web
+    Portal Layanan Mahasiswa &middot; Tugas Praktikum Web
   </footer>
 
   <script src="js/app.js"></script>
